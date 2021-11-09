@@ -1,0 +1,19 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "super.franky.e09.com" {
+	type master;
+	file "/etc/bind/kaizoku/super.franky.e09.com";
+	allow-transfer { 192.204.3.69; };
+};
+
+zone "jualbelikapal.e09.com" {
+	type master;
+	file "/etc/bind/kaizoku/jualbelikapal.e09.com";
+	allow-transfer { 192.204.2.3; };
+};
