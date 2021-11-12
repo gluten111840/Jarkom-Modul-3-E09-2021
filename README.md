@@ -75,9 +75,45 @@ Dan juga lakukan pengetesan pada client Tottoland (subnet 192.204.3.0) \
 
 ### 7. Luffy dan Zoro berencana menjadikan Skypie sebagai server untuk jual beli kapal yang dimilikinya dengan alamat IP yang tetap dengan IP [prefix IP].3.69
 
+Pertama cek "ip a" pada Skypie. \
+![image](https://user-images.githubusercontent.com/7587945/141438617-be84ddce-0e90-41a6-b26d-5d2333eeafcb.png) \
+Kemudian buka dan edit file /etc/dhcp/dhcpd.conf pada Jipangu dengan hardware ethernet mengikuti "ip a" pada Skypie bagian "link/ether" dan fixed address sesuai dengan soal. \
+![image](https://user-images.githubusercontent.com/7587945/141439365-1b46a599-0563-4259-8d55-3df167694d99.png) \
+Berikut adalah hasil testing Skypie menggunakan "ip a" dimana sekarang terdapat ip fixed address seperti pada soal. \
+![image](https://user-images.githubusercontent.com/7587945/141440040-4712b50d-ee19-45cc-8204-bf8701b1ce42.png) 
+
 ### 8. Loguetown digunakan sebagai client Proxy agar transaksi jual beli dapat terjamin keamanannya, juga untuk mencegah kebocoran data transaksi. Pada Loguetown, proxy harus bisa diakses dengan nama jualbelikapal.yyy.com dengan port yang digunakan adalah 5000
 
+Pertama buka dan edit file /etc/bind/named.conf.local \
+![image](https://user-images.githubusercontent.com/7587945/141441960-1512c2dc-1562-4a62-a8ae-ba2886922b3e.png) \
+Kemudian edit file jualbelikapal.e09.com \
+![image](https://user-images.githubusercontent.com/7587945/141442992-12ed51b5-24f0-471f-ad7f-d9f2b6869f4a.png) \
+Lalu edit squid.conf dan lakukan restart squid. \
+![image](https://user-images.githubusercontent.com/7587945/141443126-a9c1474b-0446-45ec-88b1-783a48e16724.png) \
+![image](https://user-images.githubusercontent.com/7587945/141443153-1ba79600-e8a7-4d70-9a0d-50a9d5762abf.png) \
+Aktifkan proxy seperti pada modul 3 namun menggunakan port 5000. \
+![image](https://user-images.githubusercontent.com/7587945/141443485-416dc337-7e47-431d-8d6b-0b269b86e1a9.png) \
+Berikut adalah hasil testing "lynx https://its.ac.id" \
+![image](https://user-images.githubusercontent.com/7587945/141443700-540c845f-b75c-4442-b895-afdfff452ca1.png) \
+Dan berikut adalah hasil saat "http_access allow all" ditambahkan pada squid.conf. \
+![image](https://user-images.githubusercontent.com/7587945/141443893-c2e449a5-f1ed-4abf-8aab-896954690943.png) \
+![image](https://user-images.githubusercontent.com/7587945/141443901-a9b67ce4-9603-4704-afb2-4bdb990dae0d.png) \
+![image](https://user-images.githubusercontent.com/7587945/141443922-e3b00a5a-6bde-4004-9152-6c5e71f3657d.png)
+
 ### 9. Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy dipasang autentikasi user proxy dengan enkripsi MD5 dengan dua username, yaitu luffybelikapalyyy dengan password luffy_yyy dan zorobelikapalyyy dengan password zoro_yyy
+
+Pertama ketikan perintah berikut untuk mengatur password luffybelikapale09 dan zorobelikapale09. Disini "-m" digunakan untuk enkripsi menggunakan MD5. \
+![image](https://user-images.githubusercontent.com/7587945/141444305-4753be8c-7983-40da-b70e-26e88231cbd7.png) \
+Kemudian edit squid.conf dan restart squid seperti berikut. \
+![image](https://user-images.githubusercontent.com/7587945/141444452-9f2e5ba4-fabe-49e5-8dc1-de9823a90293.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444463-c8d00e1c-a830-499f-a2e9-4a57742e41bd.png) \
+Berikut adalah hasilnya. \
+![image](https://user-images.githubusercontent.com/7587945/141444504-56e2c738-f012-40ef-bb9d-5d4c4939e9ac.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444518-8e054e9b-e6fa-407b-b45d-401f1d922b26.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444534-614b0edc-4215-492e-b410-8094a95a14df.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444552-43cf895d-c0a9-486e-83e9-8107c181b53d.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444562-ceb78f30-b906-4162-8a46-04e129f53b9f.png) \
+![image](https://user-images.githubusercontent.com/7587945/141444567-e6abc191-8f90-4cb4-89c8-0df533fdd4d4.png)
 
 ### 10. Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet dibatasi hanya dapat diakses setiap hari Senin-Kamis pukul 07.00-11.00 dan setiap hari Selasa-Jum’at pukul 17.00-03.00 keesokan harinya (sampai Sabtu pukul 03.00)
 
