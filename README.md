@@ -81,6 +81,18 @@ Dan juga lakukan pengetesan pada client Tottoland (subnet 192.204.3.0) \
 
 ### 10. Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet dibatasi hanya dapat diakses setiap hari Senin-Kamis pukul 07.00-11.00 dan setiap hari Selasa-Jum’at pukul 17.00-03.00 keesokan harinya (sampai Sabtu pukul 03.00)
 
+![no 10(1)](https://user-images.githubusercontent.com/58933506/141426850-3ae53ee9-28e3-4113-968c-b4781b7cd7c9.png)
+![no 10(2)](https://user-images.githubusercontent.com/58933506/141426943-bfd91ec3-d413-44a6-8df0-91bcc5132977.png)
+![no 10(3)](https://user-images.githubusercontent.com/58933506/141426998-126192d5-1fa8-429c-8ec3-2abc684cdf47.png)
+![no 10(4)](https://user-images.githubusercontent.com/58933506/141427050-cbcb543c-787e-40f4-aebc-88ae6a4cd25e.png)
+![no 10(5)](https://user-images.githubusercontent.com/58933506/141427100-724adadb-77d6-4c97-b771-6cbf99c133ea.png)
+![no 10(6)](https://user-images.githubusercontent.com/58933506/141427178-222052e7-45b4-441c-9946-24b151436860.png)
+![no 10(7)](https://user-images.githubusercontent.com/58933506/141427226-7235fc2b-d638-4db1-b5a9-0cdff12f3af2.png)
+![no 10(8)](https://user-images.githubusercontent.com/58933506/141427273-a256d74d-ab0d-4cc0-81e5-e339c36022f4.png)
+![no 10(9)](https://user-images.githubusercontent.com/58933506/141427314-af49b78c-a5ea-4a18-9566-5f8237d6c758.png)
+![no 10(10)](https://user-images.githubusercontent.com/58933506/141427439-60585e1e-a7e0-49d7-a2ff-ca6bd6237909.png)
+
+
 ### 11. Agar transaksi bisa lebih fokus berjalan, maka dilakukan redirect website agar mudah mengingat website transaksi jual beli kapal. Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie
 
 ### 12. Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun di super.franky.yyy.com. Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mendapatkan sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
