@@ -164,4 +164,15 @@ Lalu pada saat mengetes pada client ```Loguetown``` dengan mengakses google.com,
 
 ### 12. Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun di super.franky.yyy.com. Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mendapatkan sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
 
+![no 12(1)](https://user-images.githubusercontent.com/58933506/141436175-07de2587-6f47-4668-8fd7-e8e039f0630a.png)
+![no 12(2)](https://user-images.githubusercontent.com/58933506/141436231-6437aaca-d861-4cd9-9e4d-949d80a5a269.png)
+![no 12(3)](https://user-images.githubusercontent.com/58933506/141436255-cb774d51-f3bf-4efa-b4d0-2a739a5c5ae6.png)
+![no 12(4)](https://user-images.githubusercontent.com/58933506/141436274-3cde663e-9944-424f-83bb-83d88b3fe53e.png)
+![no 12(1)](https://user-images.githubusercontent.com/58933506/141436299-ca2f5ada-1fbf-4dcb-a554-26b5efec81e7.png)
+
 ### 13. Sedangkan, Zoro yang sangat bersemangat untuk mencari harta karun, sehingga kecepatan kapal Zoro tidak dibatasi ketika sudah mendapatkan harta yang diinginkannya
+
+![no 13(1)](https://user-images.githubusercontent.com/58933506/141436552-8c825c3f-89d3-468b-b58d-edc9cf8eb5f3.png)
+![no 13(2)](https://user-images.githubusercontent.com/58933506/141436401-fb1ff453-2757-4c4b-9c24-c0628c125413.png)
+![no 13(3)](https://user-images.githubusercontent.com/58933506/141436435-fe169a0c-bd06-488a-932a-5a4193d8d9e4.png)
+![no 13(4)](https://user-images.githubusercontent.com/58933506/141436463-0b5247d7-73c2-4ced-8608-6bec263534d7.png)
