@@ -81,13 +81,46 @@ Dan juga lakukan pengetesan pada client Tottoland (subnet 192.204.3.0) \
 
 ### 10. Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet dibatasi hanya dapat diakses setiap hari Senin-Kamis pukul 07.00-11.00 dan setiap hari Selasa-Jum’at pukul 17.00-03.00 keesokan harinya (sampai Sabtu pukul 03.00)
 
+Pada Node ```Water7``` yang berlaku sebagai proxy server, kita membuat file baru yang digunakan untuk mengeset waktu-waktu yang di mana proxy memperbolehkan mengakses internet. Pada permasalah ini, saya menggunakan lawan dari waktu yang diperbolehkan, yang nantinya pada konfigurasi ```squid.conf``` menggunakan **deny**, hal ini dikarenakan jika kita menggunakan waktu yang di-**allow** akan mengakibatkan *authentication* menjadi tidak berjalan. \
+Pada gambar di bawah ini, yang digunakan adalah 
+```conf
+acl GABISA1 time S 00:00-24:00
+acl GABISA2 time MT 00:00-07:00
+acl GABISA3 time M 11:00-24:00
+acl GABISA4 time TWH 11:00-17:00
+acl GABISA5 time WH 03:00-17:00
+acl GABISA6 time F 03:00-17:00
+acl GABISA7 time A 03:00-24:00
+```
+
 ![no 10(1)](https://user-images.githubusercontent.com/58933506/141426850-3ae53ee9-28e3-4113-968c-b4781b7cd7c9.png)
+
+Lalu meng-**include**-kannya pada file ```squid.conf``` dan menggunakan konfigurasi **deny** agar tidak bisa diakses pada hari dan jam tersebut
+```conf
+http_access deny GABISA1
+http_access deny GABISA2
+http_access deny GABISA3
+http_access deny GABISA4
+http_access deny GABISA5
+http_access deny GABISA6
+http_access deny GABISA7
+```
+
 ![no 10(2)](https://user-images.githubusercontent.com/58933506/141426943-bfd91ec3-d413-44a6-8df0-91bcc5132977.png)
 ![no 10(3)](https://user-images.githubusercontent.com/58933506/141426998-126192d5-1fa8-429c-8ec3-2abc684cdf47.png)
+
+Lalu merestart ```proxy server```
+
 ![no 10(4)](https://user-images.githubusercontent.com/58933506/141427050-cbcb543c-787e-40f4-aebc-88ae6a4cd25e.png)
+
+Kemudian mengetes pada client ```Loguetown``` yang telah terpasang proxy atau telah menjadi ```proxy client``` dengan mengeset hari dan jam yang di-**deny** oleh ```proxy server``` dan menghasilkan ```error 403 Forbidden```
+
 ![no 10(5)](https://user-images.githubusercontent.com/58933506/141427100-724adadb-77d6-4c97-b771-6cbf99c133ea.png)
 ![no 10(6)](https://user-images.githubusercontent.com/58933506/141427178-222052e7-45b4-441c-9946-24b151436860.png)
 ![no 10(7)](https://user-images.githubusercontent.com/58933506/141427226-7235fc2b-d638-4db1-b5a9-0cdff12f3af2.png)
+
+Lalu dengan mengeset pada hari dan jam yang **tidak** di-**deny** oleh ```proxy server```, didapatkan berhasil diakses dan proses *authentication* juga bisa dilakukan dengan baik.
+
 ![no 10(8)](https://user-images.githubusercontent.com/58933506/141427273-a256d74d-ab0d-4cc0-81e5-e339c36022f4.png)
 ![no 10(9)](https://user-images.githubusercontent.com/58933506/141427314-af49b78c-a5ea-4a18-9566-5f8237d6c758.png)
 ![no 10(10)](https://user-images.githubusercontent.com/58933506/141427439-60585e1e-a7e0-49d7-a2ff-ca6bd6237909.png)
