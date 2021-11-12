@@ -128,16 +128,39 @@ Lalu dengan mengeset pada hari dan jam yang **tidak** di-**deny** oleh ```proxy 
 
 ### 11. Agar transaksi bisa lebih fokus berjalan, maka dilakukan redirect website agar mudah mengingat website transaksi jual beli kapal. Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie
 
+Pada node ```EniesLobby```, kita menambahkan konfigurasi super.franky.e99.com seperti pada modul 2 sebelumnya. Di mana pada modul 3 ini, IP dari Skypie adalah ```192.204.3.69```
+
 ![no 11(1)](https://user-images.githubusercontent.com/58933506/141431399-fd32a8c5-5e41-415e-be40-7c3d8a6ab6f3.png)
 ![no 11(2)](https://user-images.githubusercontent.com/58933506/141431445-57e0315b-b8a5-4a04-aaa7-6dd41ee9fe36.png)
+
+Pada node ```Skypie```, di file ```apache.conf``` saya menambahkan 
+```
+ServerName 192.204.3.69
+```
+agar saat melakukan restart ```apache``` tidak memunculkan tulisan warning
+
 ![no 11(3)](https://user-images.githubusercontent.com/58933506/141431542-65b0ce6f-5a36-4ff3-9ed2-6e6fe351a8d0.png)
+
+Lalu mengubah ```nameserver``` pada ```/etc/resolv.conf``` pada node ```Water7``` menjadi IP dari node ```EniesLobby``` (192.204.2.2)
+
 ![no 11(4)](https://user-images.githubusercontent.com/58933506/141431617-e2e31ce5-02fe-4f5d-ad9a-41ca16b9c481.png)
+
+Lalu pada file ```/etc/squid/squid.conf``` pada node ```Water7```, saya menambahkan 
+
+```conf
+acl BLACKLIST dstdomain google.com
+deny_info http://super.franky.e09.com/ BLACKLIST
+http_reply_access deny BLACKLIST
+```
+Di mana dimaksudkan untuk men-**deny** akses **menuju** google.com dan dialihkan ke super.franky.e09.com
+
 ![no 11(5)](https://user-images.githubusercontent.com/58933506/141431672-22390521-b9ea-4c8a-a84a-f6adde37cb26.png)
+
+Lalu pada saat mengetes pada client ```Loguetown``` dengan mengakses google.com, kita akan langsung diarahkan ke http://super.franky.e09.com
+
 ![no 11(6)](https://user-images.githubusercontent.com/58933506/141431743-776a3aac-dbc5-4fbb-bda8-ad25451ad756.png)
 ![no 11(7)](https://user-images.githubusercontent.com/58933506/141431818-89ec0792-06a2-4e21-8364-6e461029afe2.png)
 ![no 11(8)](https://user-images.githubusercontent.com/58933506/141431878-e86b65ea-abeb-475b-8d22-63e8b2a8d786.png)
-
-
 
 ### 12. Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun di super.franky.yyy.com. Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mendapatkan sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
 
